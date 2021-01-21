@@ -93,7 +93,7 @@
           <av:Point x:Key="ShapeLocation">70,2.5</av:Point>
           <x:Double x:Key="StateContainerWidth">600</x:Double>
           <x:Double x:Key="StateContainerHeight">600</x:Double>
-          <av:PointCollection x:Key="ConnectorLocation">103,77.5 103,107.5 110,107.5 110,129.5</av:PointCollection>
+          <av:PointCollection x:Key="ConnectorLocation">89,77.5 89,107.5 90,107.5 90,129.5</av:PointCollection>
         </scg:Dictionary>
       </sap:WorkflowViewStateService.ViewState>
       <State x:Name="__ReferenceID4" DisplayName="Initializations" sap:VirtualizedContainerService.HintSize="134,61" sap2010:WorkflowViewState.IdRef="State_3">
@@ -130,35 +130,19 @@
                       </sap:WorkflowViewStateService.ViewState>
                       <ui:InvokeWorkflowFile ContinueOnError="{x:Null}" DisplayName="InitAllSetting workflow Invoke " sap:VirtualizedContainerService.HintSize="334,112" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_1" UnSafe="False" WorkflowFileName="InitAllSettings.xaml">
                         <ui:InvokeWorkflowFile.Arguments>
-                          <InArgument x:TypeArguments="x:String" x:Key="in_ConfigFile">
-                            <Literal x:TypeArguments="x:String">Data\Config.xlsx</Literal>
-                          </InArgument>
-                          <InArgument x:TypeArguments="s:String[]" x:Key="in_ConfigSheets">
-                            <mva:VisualBasicValue x:TypeArguments="s:String[]" ExpressionText="{}{&quot;Settings&quot;,&quot;Constants&quot;}" />
-                          </InArgument>
-                          <OutArgument x:TypeArguments="scg:Dictionary(x:String, x:Object)" x:Key="out_Config">
-                            <mva:VisualBasicReference x:TypeArguments="scg:Dictionary(x:String, x:Object)" ExpressionText="Config" />
-                          </OutArgument>
+                          <InArgument x:TypeArguments="x:String" x:Key="in_ConfigFile">Data\Config.xlsx</InArgument>
+                          <InArgument x:TypeArguments="s:String[]" x:Key="in_ConfigSheets">[{"Settings","Constants"}]</InArgument>
+                          <OutArgument x:TypeArguments="scg:Dictionary(x:String, x:Object)" x:Key="out_Config">[Config]</OutArgument>
                         </ui:InvokeWorkflowFile.Arguments>
                       </ui:InvokeWorkflowFile>
                       <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="334,91" sap2010:WorkflowViewState.IdRef="LogMessage_2" Level="Info" Message="[&quot;******************** End reading Config file*********************&quot;]" />
                       <ui:InvokeWorkflowFile ContinueOnError="{x:Null}" DisplayName="Report" sap:VirtualizedContainerService.HintSize="334,112" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_2" UnSafe="False" WorkflowFileName="Report.xaml">
                         <ui:InvokeWorkflowFile.Arguments>
-                          <InArgument x:TypeArguments="x:String" x:Key="addStatus">
-                            <Literal x:TypeArguments="x:String">Pass</Literal>
-                          </InArgument>
-                          <InArgument x:TypeArguments="x:String" x:Key="addModules">
-                            <Literal x:TypeArguments="x:String">Config</Literal>
-                          </InArgument>
-                          <InArgument x:TypeArguments="x:String" x:Key="addExptedResults">
-                            <Literal x:TypeArguments="x:String">Read Config Sheet</Literal>
-                          </InArgument>
-                          <InArgument x:TypeArguments="x:String" x:Key="Final_ReportPath">
-                            <mva:VisualBasicValue x:TypeArguments="x:String" ExpressionText="Config(&quot;ReportPath&quot;).ToString" />
-                          </InArgument>
-                          <InArgument x:TypeArguments="x:String" x:Key="SheetName">
-                            <Literal x:TypeArguments="x:String">Results</Literal>
-                          </InArgument>
+                          <InArgument x:TypeArguments="x:String" x:Key="addStatus">Pass</InArgument>
+                          <InArgument x:TypeArguments="x:String" x:Key="addModules">Config</InArgument>
+                          <InArgument x:TypeArguments="x:String" x:Key="addExptedResults">Read Config Sheet</InArgument>
+                          <InArgument x:TypeArguments="x:String" x:Key="Final_ReportPath">[Config("ReportPath").ToString]</InArgument>
+                          <InArgument x:TypeArguments="x:String" x:Key="SheetName">Results</InArgument>
                         </ui:InvokeWorkflowFile.Arguments>
                       </ui:InvokeWorkflowFile>
                     </Sequence>
@@ -193,7 +177,7 @@
         </State.Entry>
         <sap:WorkflowViewStateService.ViewState>
           <scg:Dictionary x:TypeArguments="x:String, x:Object">
-            <av:Point x:Key="ShapeLocation">43,129.5</av:Point>
+            <av:Point x:Key="ShapeLocation">23,129.5</av:Point>
             <av:Size x:Key="ShapeSize">134,61</av:Size>
             <x:Boolean x:Key="IsPinned">False</x:Boolean>
           </scg:Dictionary>
@@ -202,14 +186,12 @@
           <Transition DisplayName="Initialization Success" sap:VirtualizedContainerService.HintSize="450,505" sap2010:WorkflowViewState.IdRef="Transition_2">
             <sap:WorkflowViewStateService.ViewState>
               <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                <av:PointCollection x:Key="ConnectorLocation">177,156.95 207,156.95 207,222.5 153.7,222.5 153.7,252.5</av:PointCollection>
+                <av:PointCollection x:Key="ConnectorLocation">157,156.95 186.7,156.95 186.7,239.5 156.7,239.5 156.7,269.5</av:PointCollection>
                 <x:Int32 x:Key="SrcConnectionPointIndex">32</x:Int32>
                 <x:Int32 x:Key="DestConnectionPointIndex">42</x:Int32>
               </scg:Dictionary>
             </sap:WorkflowViewStateService.ViewState>
-            <Transition.Condition>
-              <mva:VisualBasicValue x:TypeArguments="x:Boolean" ExpressionText="SystemError is nothing" />
-            </Transition.Condition>
+            <Transition.Condition>[SystemError is nothing]</Transition.Condition>
             <Transition.To>
               <State x:Name="__ReferenceID2" DisplayName="Portal Login" sap:VirtualizedContainerService.HintSize="134,61" sap2010:WorkflowViewState.IdRef="State_4">
                 <State.Entry>
@@ -221,65 +203,41 @@
                     </sap:WorkflowViewStateService.ViewState>
                     <ui:InvokeWorkflowFile ContinueOnError="{x:Null}" DisplayName="Login" sap:VirtualizedContainerService.HintSize="334,112" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_11" UnSafe="False" WorkflowFileName="Login_WithoutDelete.xaml">
                       <ui:InvokeWorkflowFile.Arguments>
-                        <OutArgument x:TypeArguments="ui:Browser" x:Key="browserproperty">
-                          <mva:VisualBasicReference x:TypeArguments="ui:Browser" ExpressionText="var_browser_property" />
-                        </OutArgument>
-                        <InArgument x:TypeArguments="x:String" x:Key="un">
-                          <mva:VisualBasicValue x:TypeArguments="x:String" ExpressionText="Config(&quot;username&quot;).ToString" />
-                        </InArgument>
-                        <InArgument x:TypeArguments="x:String" x:Key="pwd">
-                          <mva:VisualBasicValue x:TypeArguments="x:String" ExpressionText="Config(&quot;password&quot;).ToString" />
-                        </InArgument>
-                        <InArgument x:TypeArguments="x:String" x:Key="url">
-                          <mva:VisualBasicValue x:TypeArguments="x:String" ExpressionText="Config(&quot;url&quot;).ToString" />
-                        </InArgument>
-                        <OutArgument x:TypeArguments="x:String" x:Key="LoginActualResults">
-                          <mva:VisualBasicReference x:TypeArguments="x:String" ExpressionText="LoginActualResults" />
-                        </OutArgument>
+                        <OutArgument x:TypeArguments="ui:Browser" x:Key="browserproperty">[var_browser_property]</OutArgument>
+                        <InArgument x:TypeArguments="x:String" x:Key="un">[Config("username").ToString]</InArgument>
+                        <InArgument x:TypeArguments="x:String" x:Key="pwd">[Config("password").ToString]</InArgument>
+                        <InArgument x:TypeArguments="x:String" x:Key="url">[Config("url").ToString]</InArgument>
+                        <OutArgument x:TypeArguments="x:String" x:Key="LoginActualResults">[LoginActualResults]</OutArgument>
                         <OutArgument x:TypeArguments="x:String" x:Key="ReturnExceptionForLoginFails" />
                         <OutArgument x:TypeArguments="x:String" x:Key="LoginActualResultsTaken" />
-                        <OutArgument x:TypeArguments="x:Boolean" x:Key="LoginStatusCode">
-                          <mva:VisualBasicReference x:TypeArguments="x:Boolean" ExpressionText="LoginStatusCode" />
-                        </OutArgument>
-                        <InArgument x:TypeArguments="x:String" x:Key="MyReportPath">
-                          <mva:VisualBasicValue x:TypeArguments="x:String" ExpressionText="Config(&quot;ReportPath&quot;).ToString" />
-                        </InArgument>
+                        <OutArgument x:TypeArguments="x:Boolean" x:Key="LoginStatusCode">[LoginStatusCode]</OutArgument>
+                        <InArgument x:TypeArguments="x:String" x:Key="MyReportPath">[Config("ReportPath").ToString]</InArgument>
                       </ui:InvokeWorkflowFile.Arguments>
                     </ui:InvokeWorkflowFile>
                     <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="334,91" sap2010:WorkflowViewState.IdRef="LogMessage_7" Level="Info" Message="[&quot;Login is done successfully&quot;]" />
                     <ui:InvokeWorkflowFile ContinueOnError="{x:Null}" DisplayName="Report" sap:VirtualizedContainerService.HintSize="334,112" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_12" UnSafe="False" WorkflowFileName="Report.xaml">
                       <ui:InvokeWorkflowFile.Arguments>
-                        <InArgument x:TypeArguments="x:String" x:Key="addStatus">
-                          <Literal x:TypeArguments="x:String">Pass</Literal>
-                        </InArgument>
-                        <InArgument x:TypeArguments="x:String" x:Key="addModules">
-                          <Literal x:TypeArguments="x:String">Login</Literal>
-                        </InArgument>
-                        <InArgument x:TypeArguments="x:String" x:Key="addExptedResults">
-                          <Literal x:TypeArguments="x:String">Portal Login</Literal>
-                        </InArgument>
-                        <InArgument x:TypeArguments="x:String" x:Key="Final_ReportPath">
-                          <mva:VisualBasicValue x:TypeArguments="x:String" ExpressionText="Config(&quot;ReportPath&quot;).ToString" />
-                        </InArgument>
-                        <InArgument x:TypeArguments="x:String" x:Key="SheetName">
-                          <Literal x:TypeArguments="x:String">Results</Literal>
-                        </InArgument>
+                        <InArgument x:TypeArguments="x:String" x:Key="addStatus">Pass</InArgument>
+                        <InArgument x:TypeArguments="x:String" x:Key="addModules">Login</InArgument>
+                        <InArgument x:TypeArguments="x:String" x:Key="addExptedResults">Portal Login</InArgument>
+                        <InArgument x:TypeArguments="x:String" x:Key="Final_ReportPath">[Config("ReportPath").ToString]</InArgument>
+                        <InArgument x:TypeArguments="x:String" x:Key="SheetName">Results</InArgument>
                       </ui:InvokeWorkflowFile.Arguments>
                     </ui:InvokeWorkflowFile>
                   </Sequence>
                 </State.Entry>
                 <sap:WorkflowViewStateService.ViewState>
                   <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                    <av:Point x:Key="ShapeLocation">80,252.5</av:Point>
+                    <av:Point x:Key="ShapeLocation">83,269.5</av:Point>
                     <av:Size x:Key="ShapeSize">134,61</av:Size>
                     <x:Boolean x:Key="IsPinned">False</x:Boolean>
                   </scg:Dictionary>
                 </sap:WorkflowViewStateService.ViewState>
                 <State.Transitions>
-                  <Transition DisplayName="T2" sap2010:WorkflowViewState.IdRef="Transition_4">
+                  <Transition DisplayName="Dashboard Navigation" sap:VirtualizedContainerService.HintSize="450,505" sap2010:WorkflowViewState.IdRef="Transition_4">
                     <sap:WorkflowViewStateService.ViewState>
                       <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                        <av:PointCollection x:Key="ConnectorLocation">214,279.95 244,279.95 244,303.05 323,303.05</av:PointCollection>
+                        <av:PointCollection x:Key="ConnectorLocation">217,296.95 247,296.95 247,303.05 393,303.05</av:PointCollection>
                         <x:Int32 x:Key="SrcConnectionPointIndex">32</x:Int32>
                         <x:Int32 x:Key="DestConnectionPointIndex">41</x:Int32>
                       </scg:Dictionary>
@@ -332,12 +290,8 @@
                             <Delay Duration="00:00:15" sap:VirtualizedContainerService.HintSize="334,22" sap2010:WorkflowViewState.IdRef="Delay_1" />
                             <ui:InvokeWorkflowFile ContinueOnError="{x:Null}" DisplayName="Get text value on wo" sap:VirtualizedContainerService.HintSize="334,112" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_19" UnSafe="False" WorkflowFileName="WaitForElementAndGetText.xaml">
                               <ui:InvokeWorkflowFile.Arguments>
-                                <InArgument x:TypeArguments="x:String" x:Key="selector">
-                                  <Literal x:TypeArguments="x:String">&lt;html app='chrome.exe' title='CLEAR' /&gt;&lt;webctrl aaname='Material-Chapter : *' parentid='actionDivHZ_1' tag='SPAN' /&gt;</Literal>
-                                </InArgument>
-                                <OutArgument x:TypeArguments="x:String" x:Key="getTextValue">
-                                  <mva:VisualBasicReference x:TypeArguments="x:String" ExpressionText="getTextValue1" />
-                                </OutArgument>
+                                <InArgument x:TypeArguments="x:String" x:Key="selector">&lt;html app='chrome.exe' title='CLEAR' /&gt;&lt;webctrl aaname='Material-Chapter : *' parentid='actionDivHZ_1' tag='SPAN' /&gt;</InArgument>
+                                <OutArgument x:TypeArguments="x:String" x:Key="getTextValue">[getTextValue1]</OutArgument>
                               </ui:InvokeWorkflowFile.Arguments>
                             </ui:InvokeWorkflowFile>
                             <ui:InvokeWorkflowFile ContinueOnError="{x:Null}" DisplayName="Get text value on wo" sap:VirtualizedContainerService.HintSize="334,112" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_20" UnSafe="False" WorkflowFileName="WaitForElementAndGetText.xaml">
@@ -354,22 +308,22 @@
                         </State.Entry>
                         <sap:WorkflowViewStateService.ViewState>
                           <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                            <av:Point x:Key="ShapeLocation">323,269.5</av:Point>
+                            <av:Point x:Key="ShapeLocation">393,269.5</av:Point>
                             <av:Size x:Key="ShapeSize">134,61</av:Size>
                             <x:Boolean x:Key="IsPinned">False</x:Boolean>
                           </scg:Dictionary>
                         </sap:WorkflowViewStateService.ViewState>
                         <State.Transitions>
-                          <Transition DisplayName="T3" sap2010:WorkflowViewState.IdRef="Transition_3">
+                          <Transition DisplayName="Status Check" sap:VirtualizedContainerService.HintSize="450,505" sap2010:WorkflowViewState.IdRef="Transition_3">
                             <sap:WorkflowViewStateService.ViewState>
                               <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                                <av:PointCollection x:Key="ConnectorLocation">390,269.5 390,239.5 393.2,239.5 393.2,180.5</av:PointCollection>
+                                <av:PointCollection x:Key="ConnectorLocation">460,269.5 460,239.5 363.2,239.5 363.2,100.5</av:PointCollection>
                                 <x:Int32 x:Key="SrcConnectionPointIndex">38</x:Int32>
                                 <x:Int32 x:Key="DestConnectionPointIndex">23</x:Int32>
                               </scg:Dictionary>
                             </sap:WorkflowViewStateService.ViewState>
                             <Transition.To>
-                              <State x:Name="__ReferenceID1" DisplayName="OM Status Check" sap:VirtualizedContainerService.HintSize="134,61" sap2010:WorkflowViewState.IdRef="State_2">
+                              <State x:Name="__ReferenceID1" DisplayName="OM Status Check" sap:VirtualizedContainerService.HintSize="885,2237" sap2010:WorkflowViewState.IdRef="State_2">
                                 <State.Entry>
                                   <Sequence sap:VirtualizedContainerService.HintSize="839,1877" sap2010:WorkflowViewState.IdRef="Sequence_5">
                                     <Sequence.Variables>
@@ -383,17 +337,11 @@
                                     <ui:InvokeWorkflowFile ContinueOnError="{x:Null}" DisplayName="OM-Ingest" sap:VirtualizedContainerService.HintSize="797,112" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_3" UnSafe="False" WorkflowFileName="status_check.xaml">
                                       <ui:InvokeWorkflowFile.Arguments>
                                         <OutArgument x:TypeArguments="x:String" x:Key="out_text2" />
-                                        <InArgument x:TypeArguments="x:String" x:Key="Search_WO">
-                                          <mva:VisualBasicValue x:TypeArguments="x:String" ExpressionText="Config(&quot;Material_ID&quot;).ToString" />
-                                        </InArgument>
-                                        <OutArgument x:TypeArguments="x:String" x:Key="Status_value">
-                                          <mva:VisualBasicReference x:TypeArguments="x:String" ExpressionText="ret_status_value" />
-                                        </OutArgument>
-                                        <InArgument x:TypeArguments="x:String" x:Key="Status_selector">
-                                          <Literal x:TypeArguments="x:String" xml:space="preserve">&lt;html app='chrome.exe' title='CLEAR' /&gt;
+                                        <InArgument x:TypeArguments="x:String" x:Key="Search_WO">[Config("Material_ID").ToString]</InArgument>
+                                        <OutArgument x:TypeArguments="x:String" x:Key="Status_value">[ret_status_value]</OutArgument>
+                                        <InArgument x:TypeArguments="x:String" x:Key="Status_selector" xml:space="preserve">&lt;html app='chrome.exe' title='CLEAR' /&gt;
 &lt;webctrl aaname='ING' parentid='main_wfStatusBar' tableRow='2' tag='SPAN' /&gt;
-</Literal>
-                                        </InArgument>
+</InArgument>
                                       </ui:InvokeWorkflowFile.Arguments>
                                     </ui:InvokeWorkflowFile>
                                     <ui:InvokeWorkflowFile ContinueOnError="{x:Null}" DisplayName="Report" sap:VirtualizedContainerService.HintSize="797,112" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_7" UnSafe="False" WorkflowFileName="Report.xaml">
@@ -418,71 +366,39 @@
                                     <ui:InvokeWorkflowFile ContinueOnError="{x:Null}" DisplayName="OM-Archival" sap:VirtualizedContainerService.HintSize="797,112" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_4" UnSafe="False" WorkflowFileName="status_check.xaml">
                                       <ui:InvokeWorkflowFile.Arguments>
                                         <OutArgument x:TypeArguments="x:String" x:Key="out_text2" />
-                                        <InArgument x:TypeArguments="x:String" x:Key="Search_WO">
-                                          <mva:VisualBasicValue x:TypeArguments="x:String" ExpressionText="Config(&quot;Material_ID&quot;).ToString" />
-                                        </InArgument>
-                                        <OutArgument x:TypeArguments="x:String" x:Key="Status_value">
-                                          <mva:VisualBasicReference x:TypeArguments="x:String" ExpressionText="ret_status_value" />
-                                        </OutArgument>
-                                        <InArgument x:TypeArguments="x:String" x:Key="Status_selector">
-                                          <Literal x:TypeArguments="x:String" xml:space="preserve">&lt;html app='chrome.exe' title='CLEAR' /&gt;
+                                        <InArgument x:TypeArguments="x:String" x:Key="Search_WO">[Config("Material_ID").ToString]</InArgument>
+                                        <OutArgument x:TypeArguments="x:String" x:Key="Status_value">[ret_status_value]</OutArgument>
+                                        <InArgument x:TypeArguments="x:String" x:Key="Status_selector" xml:space="preserve">&lt;html app='chrome.exe' title='CLEAR' /&gt;
 &lt;webctrl aaname='ARCH' parentid='main_wfStatusBar' tableRow='2' tag='SPAN' /&gt;
-</Literal>
-                                        </InArgument>
+</InArgument>
                                       </ui:InvokeWorkflowFile.Arguments>
                                     </ui:InvokeWorkflowFile>
                                     <ui:InvokeWorkflowFile ContinueOnError="{x:Null}" DisplayName="Report" sap:VirtualizedContainerService.HintSize="797,112" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_8" UnSafe="False" WorkflowFileName="Report.xaml">
                                       <ui:InvokeWorkflowFile.Arguments>
-                                        <InArgument x:TypeArguments="x:String" x:Key="addStatus">
-                                          <Literal x:TypeArguments="x:String">Pass</Literal>
-                                        </InArgument>
-                                        <InArgument x:TypeArguments="x:String" x:Key="addModules">
-                                          <Literal x:TypeArguments="x:String">OM Workflow</Literal>
-                                        </InArgument>
-                                        <InArgument x:TypeArguments="x:String" x:Key="addExptedResults">
-                                          <mva:VisualBasicValue x:TypeArguments="x:String" ExpressionText="&quot;OM Archival Completion status is&quot;+ret_status_value.ToString" />
-                                        </InArgument>
-                                        <InArgument x:TypeArguments="x:String" x:Key="Final_ReportPath">
-                                          <mva:VisualBasicValue x:TypeArguments="x:String" ExpressionText="Config(&quot;ReportPath&quot;).ToString" />
-                                        </InArgument>
-                                        <InArgument x:TypeArguments="x:String" x:Key="SheetName">
-                                          <Literal x:TypeArguments="x:String">Results</Literal>
-                                        </InArgument>
+                                        <InArgument x:TypeArguments="x:String" x:Key="addStatus">Pass</InArgument>
+                                        <InArgument x:TypeArguments="x:String" x:Key="addModules">OM Workflow</InArgument>
+                                        <InArgument x:TypeArguments="x:String" x:Key="addExptedResults">["OM Archival Completion status is"+ret_status_value.ToString]</InArgument>
+                                        <InArgument x:TypeArguments="x:String" x:Key="Final_ReportPath">[Config("ReportPath").ToString]</InArgument>
+                                        <InArgument x:TypeArguments="x:String" x:Key="SheetName">Results</InArgument>
                                       </ui:InvokeWorkflowFile.Arguments>
                                     </ui:InvokeWorkflowFile>
                                     <ui:InvokeWorkflowFile ContinueOnError="{x:Null}" DisplayName="Invoke Workflow File" sap:VirtualizedContainerService.HintSize="797,112" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_5" UnSafe="False" WorkflowFileName="INT_AQC.xaml">
                                       <ui:InvokeWorkflowFile.Arguments>
                                         <OutArgument x:TypeArguments="x:String" x:Key="out_text2" />
-                                        <InArgument x:TypeArguments="x:String" x:Key="Search_WO">
-                                          <mva:VisualBasicValue x:TypeArguments="x:String" ExpressionText="Config(&quot;Material_ID&quot;).ToString" />
-                                        </InArgument>
-                                        <OutArgument x:TypeArguments="x:String" x:Key="Status_value">
-                                          <mva:VisualBasicReference x:TypeArguments="x:String" ExpressionText="ret_status_value" />
-                                        </OutArgument>
-                                        <InArgument x:TypeArguments="x:String" x:Key="Status_selector">
-                                          <Literal x:TypeArguments="x:String" xml:space="preserve">&lt;html app='chrome.exe' title='CLEAR' /&gt;
+                                        <InArgument x:TypeArguments="x:String" x:Key="Search_WO">[Config("Material_ID").ToString]</InArgument>
+                                        <OutArgument x:TypeArguments="x:String" x:Key="Status_value">[ret_status_value]</OutArgument>
+                                        <InArgument x:TypeArguments="x:String" x:Key="Status_selector" xml:space="preserve">&lt;html app='chrome.exe' title='CLEAR' /&gt;
 &lt;webctrl aaname='AQC' parentid='main_wfStatusBar' tableRow='2' tag='SPAN' /&gt;
-</Literal>
-                                        </InArgument>
+</InArgument>
                                       </ui:InvokeWorkflowFile.Arguments>
                                     </ui:InvokeWorkflowFile>
                                     <ui:InvokeWorkflowFile ContinueOnError="{x:Null}" DisplayName="Report" sap:VirtualizedContainerService.HintSize="797,112" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_9" UnSafe="False" WorkflowFileName="Report.xaml">
                                       <ui:InvokeWorkflowFile.Arguments>
-                                        <InArgument x:TypeArguments="x:String" x:Key="addStatus">
-                                          <Literal x:TypeArguments="x:String">Pass</Literal>
-                                        </InArgument>
-                                        <InArgument x:TypeArguments="x:String" x:Key="addModules">
-                                          <Literal x:TypeArguments="x:String">OM Workflow</Literal>
-                                        </InArgument>
-                                        <InArgument x:TypeArguments="x:String" x:Key="addExptedResults">
-                                          <mva:VisualBasicValue x:TypeArguments="x:String" ExpressionText="&quot;OM-AQC completion status in &quot;+ret_status_value.ToString" />
-                                        </InArgument>
-                                        <InArgument x:TypeArguments="x:String" x:Key="Final_ReportPath">
-                                          <mva:VisualBasicValue x:TypeArguments="x:String" ExpressionText="Config(&quot;ReportPath&quot;).ToString" />
-                                        </InArgument>
-                                        <InArgument x:TypeArguments="x:String" x:Key="SheetName">
-                                          <Literal x:TypeArguments="x:String">Results</Literal>
-                                        </InArgument>
+                                        <InArgument x:TypeArguments="x:String" x:Key="addStatus">Pass</InArgument>
+                                        <InArgument x:TypeArguments="x:String" x:Key="addModules">OM Workflow</InArgument>
+                                        <InArgument x:TypeArguments="x:String" x:Key="addExptedResults">["OM-AQC completion status in "+ret_status_value.ToString]</InArgument>
+                                        <InArgument x:TypeArguments="x:String" x:Key="Final_ReportPath">[Config("ReportPath").ToString]</InArgument>
+                                        <InArgument x:TypeArguments="x:String" x:Key="SheetName">Results</InArgument>
                                       </ui:InvokeWorkflowFile.Arguments>
                                     </ui:InvokeWorkflowFile>
                                     <If Condition="[ret_status_value.Contains(&quot;Fail&quot;)]" sap:VirtualizedContainerService.HintSize="797,873" sap2010:WorkflowViewState.IdRef="If_2">
@@ -503,36 +419,20 @@
                                             <ui:InvokeWorkflowFile ContinueOnError="{x:Null}" DisplayName="Invoke Workflow File" sap:VirtualizedContainerService.HintSize="334,112" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_6" UnSafe="False" WorkflowFileName="status_check.xaml">
                                               <ui:InvokeWorkflowFile.Arguments>
                                                 <OutArgument x:TypeArguments="x:String" x:Key="out_text2" />
-                                                <InArgument x:TypeArguments="x:String" x:Key="Search_WO">
-                                                  <mva:VisualBasicValue x:TypeArguments="x:String" ExpressionText="Config(&quot;Material_ID&quot;).ToString" />
-                                                </InArgument>
-                                                <OutArgument x:TypeArguments="x:String" x:Key="Status_value">
-                                                  <mva:VisualBasicReference x:TypeArguments="x:String" ExpressionText="ret_status_value" />
-                                                </OutArgument>
-                                                <InArgument x:TypeArguments="x:String" x:Key="Status_selector">
-                                                  <Literal x:TypeArguments="x:String" xml:space="preserve">&lt;html app='chrome.exe' title='CLEAR' /&gt;
+                                                <InArgument x:TypeArguments="x:String" x:Key="Search_WO">[Config("Material_ID").ToString]</InArgument>
+                                                <OutArgument x:TypeArguments="x:String" x:Key="Status_value">[ret_status_value]</OutArgument>
+                                                <InArgument x:TypeArguments="x:String" x:Key="Status_selector" xml:space="preserve">&lt;html app='chrome.exe' title='CLEAR' /&gt;
 &lt;webctrl aaname='AME' idx='1' parentid='main_wfStatusBar' tag='SPAN' /&gt;
-</Literal>
-                                                </InArgument>
+</InArgument>
                                               </ui:InvokeWorkflowFile.Arguments>
                                             </ui:InvokeWorkflowFile>
                                             <ui:InvokeWorkflowFile ContinueOnError="{x:Null}" DisplayName="Report" sap:VirtualizedContainerService.HintSize="334,112" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_10" UnSafe="False" WorkflowFileName="Report.xaml">
                                               <ui:InvokeWorkflowFile.Arguments>
-                                                <InArgument x:TypeArguments="x:String" x:Key="addStatus">
-                                                  <Literal x:TypeArguments="x:String">Pass</Literal>
-                                                </InArgument>
-                                                <InArgument x:TypeArguments="x:String" x:Key="addModules">
-                                                  <Literal x:TypeArguments="x:String">OM Workflow</Literal>
-                                                </InArgument>
-                                                <InArgument x:TypeArguments="x:String" x:Key="addExptedResults">
-                                                  <mva:VisualBasicValue x:TypeArguments="x:String" ExpressionText="&quot;OM-AME Completion status is &quot;+ret_status_value.ToString" />
-                                                </InArgument>
-                                                <InArgument x:TypeArguments="x:String" x:Key="Final_ReportPath">
-                                                  <mva:VisualBasicValue x:TypeArguments="x:String" ExpressionText="Config(&quot;ReportPath&quot;).ToString" />
-                                                </InArgument>
-                                                <InArgument x:TypeArguments="x:String" x:Key="SheetName">
-                                                  <Literal x:TypeArguments="x:String">Results</Literal>
-                                                </InArgument>
+                                                <InArgument x:TypeArguments="x:String" x:Key="addStatus">Pass</InArgument>
+                                                <InArgument x:TypeArguments="x:String" x:Key="addModules">OM Workflow</InArgument>
+                                                <InArgument x:TypeArguments="x:String" x:Key="addExptedResults">["OM-AME Completion status is "+ret_status_value.ToString]</InArgument>
+                                                <InArgument x:TypeArguments="x:String" x:Key="Final_ReportPath">[Config("ReportPath").ToString]</InArgument>
+                                                <InArgument x:TypeArguments="x:String" x:Key="SheetName">Results</InArgument>
                                               </ui:InvokeWorkflowFile.Arguments>
                                             </ui:InvokeWorkflowFile>
                                             <ui:CloseWindow TimeoutMS="{x:Null}" UseWindow="{x:Null}" DisplayName="Close Window 'chrome.exe  CLEAR'" sap:VirtualizedContainerService.HintSize="334,106" sap2010:WorkflowViewState.IdRef="CloseWindow_1" InformativeScreenshot="b7489f1fa6650a5491541755109feccc" Selector="&lt;html app='chrome.exe' title='CLEAR' /&gt;" WaitForReady="INTERACTIVE" />
@@ -547,7 +447,7 @@
                                 </State.Entry>
                                 <sap:WorkflowViewStateService.ViewState>
                                   <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                                    <av:Point x:Key="ShapeLocation">353,119.5</av:Point>
+                                    <av:Point x:Key="ShapeLocation">323,39.5</av:Point>
                                     <av:Size x:Key="ShapeSize">134,61</av:Size>
                                     <x:Boolean x:Key="IsPinned">False</x:Boolean>
                                   </scg:Dictionary>
@@ -556,7 +456,7 @@
                                   <Transition DisplayName="T1" sap:VirtualizedContainerService.HintSize="450,505" sap2010:WorkflowViewState.IdRef="Transition_1">
                                     <sap:WorkflowViewStateService.ViewState>
                                       <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                                        <av:PointCollection x:Key="ConnectorLocation">487,153.05 526.7,153.05 526.7,339.5</av:PointCollection>
+                                        <av:PointCollection x:Key="ConnectorLocation">457,73.05 544.5,73.05 544.5,348.5 526.7,348.5 526.7,439.5</av:PointCollection>
                                         <x:Int32 x:Key="SrcConnectionPointIndex">40</x:Int32>
                                         <x:Int32 x:Key="DestConnectionPointIndex">42</x:Int32>
                                       </scg:Dictionary>
@@ -603,7 +503,7 @@
                                         </State.Entry>
                                         <sap:WorkflowViewStateService.ViewState>
                                           <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                                            <av:Point x:Key="ShapeLocation">453,339.5</av:Point>
+                                            <av:Point x:Key="ShapeLocation">453,439.5</av:Point>
                                             <av:Size x:Key="ShapeSize">134,61</av:Size>
                                             <x:Boolean x:Key="IsPinned">False</x:Boolean>
                                           </scg:Dictionary>
@@ -626,7 +526,7 @@
           <Transition DisplayName="Error" sap:VirtualizedContainerService.HintSize="450,505" sap2010:WorkflowViewState.IdRef="Transition_5">
             <sap:WorkflowViewStateService.ViewState>
               <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                <av:PointCollection x:Key="ConnectorLocation">56.4,190.5 56.4,373.05 453,373.05</av:PointCollection>
+                <av:PointCollection x:Key="ConnectorLocation">36.4,190.5 36.4,473.05 453,473.05</av:PointCollection>
                 <x:Int32 x:Key="SrcConnectionPointIndex">7</x:Int32>
                 <x:Int32 x:Key="DestConnectionPointIndex">41</x:Int32>
               </scg:Dictionary>
@@ -634,9 +534,7 @@
             <Transition.To>
               <x:Reference>__ReferenceID0</x:Reference>
             </Transition.To>
-            <Transition.Condition>
-              <mva:VisualBasicValue x:TypeArguments="x:Boolean" ExpressionText="not SystemError is Nothing" />
-            </Transition.Condition>
+            <Transition.Condition>[not SystemError is Nothing]</Transition.Condition>
           </Transition>
         </State.Transitions>
       </State>
