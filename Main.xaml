@@ -138,11 +138,21 @@
                       <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="334,91" sap2010:WorkflowViewState.IdRef="LogMessage_2" Level="Info" Message="[&quot;******************** End reading Config file*********************&quot;]" />
                       <ui:InvokeWorkflowFile ContinueOnError="{x:Null}" DisplayName="Report" sap:VirtualizedContainerService.HintSize="334,112" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_2" UnSafe="False" WorkflowFileName="Report.xaml">
                         <ui:InvokeWorkflowFile.Arguments>
-                          <InArgument x:TypeArguments="x:String" x:Key="addStatus">Pass</InArgument>
-                          <InArgument x:TypeArguments="x:String" x:Key="addModules">Config</InArgument>
-                          <InArgument x:TypeArguments="x:String" x:Key="addExptedResults">Read Config Sheet</InArgument>
-                          <InArgument x:TypeArguments="x:String" x:Key="Final_ReportPath">[Config("ReportPath").ToString]</InArgument>
-                          <InArgument x:TypeArguments="x:String" x:Key="SheetName">Results</InArgument>
+                          <InArgument x:TypeArguments="x:String" x:Key="addStatus">
+                            <Literal x:TypeArguments="x:String">Pass</Literal>
+                          </InArgument>
+                          <InArgument x:TypeArguments="x:String" x:Key="addModules">
+                            <Literal x:TypeArguments="x:String">Config</Literal>
+                          </InArgument>
+                          <InArgument x:TypeArguments="x:String" x:Key="addExptedResults">
+                            <Literal x:TypeArguments="x:String">Read Config Sheet</Literal>
+                          </InArgument>
+                          <InArgument x:TypeArguments="x:String" x:Key="Final_ReportPath">
+                            <mva:VisualBasicValue x:TypeArguments="x:String" ExpressionText="Config(&quot;ReportPath&quot;).ToString" />
+                          </InArgument>
+                          <InArgument x:TypeArguments="x:String" x:Key="SheetName">
+                            <Literal x:TypeArguments="x:String">Results</Literal>
+                          </InArgument>
                         </ui:InvokeWorkflowFile.Arguments>
                       </ui:InvokeWorkflowFile>
                     </Sequence>
@@ -323,7 +333,7 @@
                               </scg:Dictionary>
                             </sap:WorkflowViewStateService.ViewState>
                             <Transition.To>
-                              <State x:Name="__ReferenceID1" DisplayName="OM Status Check" sap:VirtualizedContainerService.HintSize="885,2237" sap2010:WorkflowViewState.IdRef="State_2">
+                              <State x:Name="__ReferenceID1" DisplayName="OM Status Check" sap:VirtualizedContainerService.HintSize="134,61" sap2010:WorkflowViewState.IdRef="State_2">
                                 <State.Entry>
                                   <Sequence sap:VirtualizedContainerService.HintSize="839,1877" sap2010:WorkflowViewState.IdRef="Sequence_5">
                                     <Sequence.Variables>
@@ -462,7 +472,7 @@
                                       </scg:Dictionary>
                                     </sap:WorkflowViewStateService.ViewState>
                                     <Transition.To>
-                                      <State x:Name="__ReferenceID0" DisplayName="Final State" sap:VirtualizedContainerService.HintSize="134,61" sap2010:WorkflowViewState.IdRef="State_1" IsFinal="True">
+                                      <State x:Name="__ReferenceID0" DisplayName="Final State" sap:VirtualizedContainerService.HintSize="422,448" sap2010:WorkflowViewState.IdRef="State_1" IsFinal="True">
                                         <State.Entry>
                                           <Sequence sap:VirtualizedContainerService.HintSize="376,335" sap2010:WorkflowViewState.IdRef="Sequence_7">
                                             <sap:WorkflowViewStateService.ViewState>
